@@ -1,7 +1,10 @@
-def process_query(user_input: str) -> str:
-    """
-    This is your backend placeholder.
-    Later, replace this with your RAG or LLM pipeline.
-    """
-    # mock response for now
-    return f"You asked: '{user_input}'. This is a backend-generated response."
+from backend.llm_agent import create_agent
+
+agent = create_agent()
+
+def process_query(query: str):
+    try:
+        response = agent.run(query)
+        return response
+    except Exception as e:
+        return f"Error processing request: {e}"
