@@ -1,10 +1,9 @@
-from backend.llm_agent import create_agent
+from agent.planner import process_query
 
-agent = create_agent()
-
-def process_query(query: str):
+def handle_user_query(question: str) -> str:
+    """Bridge between frontend and agent logic."""
     try:
-        response = agent.run(query)
+        response = process_query(question)
         return response
     except Exception as e:
         return f"Error processing request: {e}"

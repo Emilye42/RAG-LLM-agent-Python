@@ -84,3 +84,4 @@ def get_cash_runway(data):
     if avg_burn == 0:
         return float("inf")
     return last_cash / avg_burn
+
